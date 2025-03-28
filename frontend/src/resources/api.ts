@@ -1,5 +1,5 @@
 export class Api {
-  private baseUrl = 'http://localhost:8000';
+  private baseUrl = process.env.VITE_API_BASE_URL!;
 
   async getTodos() {
     const response = await fetch(`${this.baseUrl}/todos/`);

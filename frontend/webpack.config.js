@@ -7,6 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin } = require('aurelia-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -233,6 +234,7 @@ module.exports = ({ production }, { analyze, hmr, port, host }) => ({
     ]
   },
   plugins: [
+    new Dotenv(),
     new DuplicatePackageCheckerPlugin(),
     new AureliaPlugin(),
     new HtmlWebpackPlugin({
