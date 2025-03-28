@@ -16,6 +16,12 @@ psycopg2-binary = "^2.9.10"
 uvicorn = "^0.34.0"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+pytest-asyncio = "^0.26.0"
+httpx = "^0.28.1"
+aiosqlite = "^0.21.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
