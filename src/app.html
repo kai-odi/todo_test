@@ -1,0 +1,18 @@
+<template>
+  <h2>ToDo List (TypeScript)</h2>
+  <input type="text"
+         placeholder="Enter new todo"
+         value.bind="newTodo"
+         keyup.delegate="$event.key === 'Enter' && addTodo()">
+  <button click.delegate="addTodo()">Add</button>
+
+  <ul>
+    <li repeat.for="todo of todos">
+      <input type="checkbox" checked.bind="todo.done" change.delegate="toggleTodo(todo)">
+      <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
+        ${todo.text}
+      </span>
+      <button click.delegate="removeTodo($index)">Delete</button>
+    </li>
+  </ul>
+</template>
