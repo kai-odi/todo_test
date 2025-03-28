@@ -3,16 +3,16 @@ export interface ITodo {
   done: boolean;
 }
 
-export class App {
+export class Todo {
   todos: ITodo[] = [];
   newTodo: string = '';
 
-  addTodo(): void {
-    if (this.newTodo.trim()) {
-      this.todos.push({ text: this.newTodo, done: false });
-      this.newTodo = '';
-    }
+addTodo(): void {
+  if (this.newTodo.trim()) {
+    this.todos.unshift({ text: this.newTodo, done: false });
+    this.newTodo = '';
   }
+}
 
   removeTodo(index: number): void {
     this.todos.splice(index, 1);
