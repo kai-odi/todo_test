@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    command: bash -c "poetry run alembic upgrade head && poetry run python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/dist:/usr/share/nginx/html

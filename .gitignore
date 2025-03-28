@@ -18,10 +18,10 @@ Thumbs.db
 # Ref: https://github.com/github/gitignore/blob/master/Global
 # Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
-.idea
+../.idea
 .chrome
 /*.log
-.vscode/*
+frontend/.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -35,3 +35,4 @@ node_modules
 /src/environment.ts
 /dist
 /test/coverage-jest
+/backend/.env
