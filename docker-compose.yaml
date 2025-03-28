@@ -3,6 +3,11 @@ services:
     image: postgres:16
     env_file:
       - ./backend/.env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PORT: ${DB_PORT}
     ports:
       - "5432:5432"
 
@@ -15,8 +20,8 @@ services:
       - db
 
   frontend:
-    image: nginx:latest
+    build: ./frontend
     ports:
-      - "80:80"
-    volumes:
-      - ./frontend/dist:/usr/share/nginx/html
+      - "9000:80"
+    depends_on:
+      - backend
