@@ -7,8 +7,9 @@ class TodoBase(BaseModel):
 class TodoCreate(TodoBase):
     pass
 
-class TodoUpdate(TodoBase):
-    pass
+class TodoUpdate(BaseModel):
+    text: str | None = None
+    done: bool | None = None
 
 class TodoInDB(TodoBase):
     id: int
