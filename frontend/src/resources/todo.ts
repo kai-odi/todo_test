@@ -1,3 +1,4 @@
+import './todo.css';
 import { Api } from './api';
 
 export interface ITodo {

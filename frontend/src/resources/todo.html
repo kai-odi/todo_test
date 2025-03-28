@@ -1,13 +1,18 @@
 <template>
-  <input type="text" value.bind="newTodo" placeholder="New todo">
-  <button click.delegate="addTodo()">Add</button>
-  <ul>
-    <li repeat.for="todo of todos">
-<input type="checkbox" checked.bind="todo.done" change.delegate="onToggleRequested(todo)">
-      <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
-        ${todo.text}
-      </span>
-      <button click.delegate="removeTodo($index, todo.id)">Delete</button>
-    </li>
-  </ul>
+  <div class="todo-app">
+    <h1>Simple ToDo List by Kai Odi</h1>
+
+    <div class="todo-input">
+      <input type="text" value.bind="newTodo" placeholder="New todo">
+      <button click.delegate="addTodo()">Add</button>
+    </div>
+
+    <ul class="todo-list">
+      <li class="todo-item ${todo.done ? 'done' : ''}" repeat.for="todo of todos">
+        <input type="checkbox" checked.bind="todo.done" change.delegate="onToggleRequested(todo)">
+        <span>${todo.text}</span>
+        <button click.delegate="removeTodo($index, todo.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
 </template>
