@@ -1,5 +1,5 @@
 # `todo-app`
-
+![img.png](example/img.png)
 This project uses Python 3.12 for the backend and TypeScript + Aurelia for the frontend.
 
 ## First-time Setup
