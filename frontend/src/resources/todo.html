@@ -1,0 +1,13 @@
+<template>
+  <input type="text" value.bind="newTodo" placeholder="New todo">
+  <button click.delegate="addTodo()">Add</button>
+  <ul>
+    <li repeat.for="todo of todos">
+<input type="checkbox" checked.bind="todo.done" change.delegate="onToggleRequested(todo)">
+      <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
+        ${todo.text}
+      </span>
+      <button click.delegate="removeTodo($index, todo.id)">Delete</button>
+    </li>
+  </ul>
+</template>
